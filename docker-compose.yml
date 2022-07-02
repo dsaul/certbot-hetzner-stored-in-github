@@ -10,7 +10,7 @@ services:
     environment:
       - CERTIFICATE_DOMAIN=
       - EMAIL_ADDR=
-      - LINODE_API_KEY=
+      - HETZNER_API_KEY=
       - GIT_URL=
       - KEYPAIR_PRIVATE_FILE=/var/run/secrets/ID_RSA
       - KEYPAIR_PUBLIC_FILE=/var/run/secrets/ID_RSA_PUB
