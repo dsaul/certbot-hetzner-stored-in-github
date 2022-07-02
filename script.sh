@@ -48,7 +48,7 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 chmod go-w ~/ || true
 chmod 700 ~/.ssh || true
 chmod 600 ~/.ssh/KEYPAIR_PRIVATE || true
-chmod 600 /tmp/linode.ini || true
+chmod 600 /tmp/hetzner.ini || true
 
 # Clear our the lets encrypt directory.
 mkdir -p /etc/letsencrypt
@@ -65,7 +65,7 @@ git config --global user.name "Docker Container"
 ssh-agent bash -c "ssh-add /root/.ssh/KEYPAIR_PRIVATE; git clone --depth 1 $GIT_URL -b master /etc/letsencrypt"
 
 certbot \
-	certonly --dns-linode \
+	certonly \
 	-d $CERTIFICATE_DOMAIN \
 	-d *.$CERTIFICATE_DOMAIN \
 	--agree-tos \
