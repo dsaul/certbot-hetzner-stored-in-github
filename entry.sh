@@ -14,9 +14,9 @@ if [ -z ${EMAIL_ADDR+x} ];
 	else echo "EMAIL_ADDR = '$EMAIL_ADDR'";
 fi
 
-if [ -z ${LINODE_API_KEY+x} ];
-	then echo "LINODE_API_KEY is not set" && exit 1;
-	else echo "LINODE_API_KEY = '$LINODE_API_KEY'";
+if [ -z ${HETZNER_API_KEY+x} ];
+	then echo "HETZNER_API_KEY is not set" && exit 1;
+	else echo "HETZNER_API_KEY = '$HETZNER_API_KEY'";
 fi
 
 if [ -z ${GIT_URL+x} ];
@@ -34,7 +34,7 @@ if [ -z ${KEYPAIR_PUBLIC_FILE+x} ];
 	else echo "KEYPAIR_PUBLIC_FILE = '$KEYPAIR_PUBLIC_FILE'";
 fi
 
-echo "dns_linode_key = $LINODE_API_KEY" > /tmp/linode.ini
+echo "dns_hetzner_api_token = $HETZNER_API_KEY" > /tmp/hetzner.ini
 
 /script.sh > /proc/1/fd/1
 

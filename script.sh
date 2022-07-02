@@ -76,7 +76,8 @@ certbot \
 	--non-interactive \
 	-m $EMAIL_ADDR \
 	--server https://acme-v02.api.letsencrypt.org/directory \
-	--dns-linode-credentials /tmp/linode.ini
+	--authenticator dns-hetzner
+	--dns-hetzner-credentials /tmp/hetzner.ini
 
 cd /etc/letsencrypt
 git add -v * || echo "git was unable to add"
