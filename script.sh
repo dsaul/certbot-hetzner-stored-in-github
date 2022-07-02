@@ -66,8 +66,8 @@ ssh-agent bash -c "ssh-add /root/.ssh/KEYPAIR_PRIVATE; git clone --depth 1 $GIT_
 
 certbot -v \
 	certonly \
-	--authenticator dns-hetzner
-	--dns-hetzner-credentials /tmp/hetzner.ini
+	--authenticator dns-hetzner \
+	--dns-hetzner-credentials /tmp/hetzner.ini \
 	-d $CERTIFICATE_DOMAIN \
 	-d *.$CERTIFICATE_DOMAIN \
 	--agree-tos \
