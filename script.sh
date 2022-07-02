@@ -64,10 +64,10 @@ git config --global user.name "Docker Container"
 
 ssh-agent bash -c "ssh-add /root/.ssh/KEYPAIR_PRIVATE; git clone --depth 1 $GIT_URL -b master /etc/letsencrypt"
 
-certbot \
+certbot -v \
 	certonly \
 	--authenticator dns-hetzner
-	--dns-hetzner-credentials /tmp/hetzner.ini || cat /var/log/letsencrypt/letsencrypt.log
+	--dns-hetzner-credentials /tmp/hetzner.ini
 	-d $CERTIFICATE_DOMAIN \
 	-d *.$CERTIFICATE_DOMAIN \
 	--agree-tos \
@@ -77,7 +77,7 @@ certbot \
 	--preferred-challenges dns-01 \
 	--non-interactive \
 	-m $EMAIL_ADDR \
-	--server https://acme-v02.api.letsencrypt.org/directory \
+	--server https://acme-v02.api.letsencrypt.org/directory || cat /var/log/letsencrypt/letsencrypt.log
 	
 
 cd /etc/letsencrypt
