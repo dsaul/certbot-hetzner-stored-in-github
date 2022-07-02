@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  proxy:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    working_dir: /
+    container_name: certbot-hetzner-stored-in-github
+    restart: always
+    environment:
+      - CERTIFICATE_DOMAIN=
+      - EMAIL_ADDR=
+      - LINODE_API_KEY=
+      - GIT_URL=
+      - KEYPAIR_PRIVATE_FILE=/var/run/secrets/ID_RSA
+      - KEYPAIR_PUBLIC_FILE=/var/run/secrets/ID_RSA_PUB
+    volumes:
+      - ./secrets-domain:/var/run/secrets
