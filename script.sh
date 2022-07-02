@@ -65,7 +65,7 @@ git config --global user.name "Docker Container"
 ssh-agent bash -c "ssh-add /root/.ssh/KEYPAIR_PRIVATE; git clone --depth 1 $GIT_URL -b master /etc/letsencrypt"
 
 certbot \
-	certonly --dns-hetzner \
+	certonly \
 	-d $CERTIFICATE_DOMAIN \
 	-d *.$CERTIFICATE_DOMAIN \
 	--agree-tos \
