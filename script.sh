@@ -66,6 +66,8 @@ ssh-agent bash -c "ssh-add /root/.ssh/KEYPAIR_PRIVATE; git clone --depth 1 $GIT_
 
 certbot \
 	certonly \
+	--authenticator dns-hetzner
+	--dns-hetzner-credentials /tmp/hetzner.ini || cat /var/log/letsencrypt/letsencrypt.log
 	-d $CERTIFICATE_DOMAIN \
 	-d *.$CERTIFICATE_DOMAIN \
 	--agree-tos \
@@ -76,8 +78,7 @@ certbot \
 	--non-interactive \
 	-m $EMAIL_ADDR \
 	--server https://acme-v02.api.letsencrypt.org/directory \
-	--authenticator dns-hetzner
-	--dns-hetzner-credentials /tmp/hetzner.ini
+	
 
 cd /etc/letsencrypt
 git add -v * || echo "git was unable to add"
