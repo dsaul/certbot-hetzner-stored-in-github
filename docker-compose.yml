@@ -5,14 +5,11 @@ services:
       context: ./
       dockerfile: Dockerfile
     working_dir: /
-    container_name: certbot-hetzner-stored-in-github
+    container_name: certbot-domain
     restart: always
     environment:
       - CERTIFICATE_DOMAIN=
       - EMAIL_ADDR=
       - HETZNER_API_KEY=
       - GIT_URL=
-      - KEYPAIR_PRIVATE_FILE=/var/run/secrets/ID_RSA
-      - KEYPAIR_PUBLIC_FILE=/var/run/secrets/ID_RSA_PUB
-    volumes:
-      - ./secrets-domain:/var/run/secrets
+      - KEYPAIR_PRIVATE_BASE64=
