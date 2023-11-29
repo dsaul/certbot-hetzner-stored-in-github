@@ -1,9 +1,10 @@
 version: '3.8'
 services:
-  proxy:
+  certbot:
     build:
       context: ./
       dockerfile: Dockerfile
+    image: maskawanian/certbot-hetzner-stored-in-github
     working_dir: /
     container_name: certbot-domain
     restart: always

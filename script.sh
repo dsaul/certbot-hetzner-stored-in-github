@@ -78,8 +78,6 @@ certbot -v \
 	-d $CERTIFICATE_DOMAIN \
 	-d *.$CERTIFICATE_DOMAIN \
 	--agree-tos \
-	--no-bootstrap \
-	--manual-public-ip-logging-ok \
 	--no-eff-email \
 	--preferred-challenges dns-01 \
 	--non-interactive \
