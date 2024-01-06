@@ -4,7 +4,7 @@
 # 4. Entry: Month of the year when the process will be started [1-12]
 # 5. Entry: Weekday when the process will be started [0-6] [0 is Sunday]
 
-30 2 * * * /script.sh > /proc/1/fd/1
+30 2 * * * bash -c "/script.sh > /proc/1/fd/1"
 
 # do daily/weekly/monthly maintenance
 #*/15    *       *       *       *       run-parts /etc/periodic/15min
