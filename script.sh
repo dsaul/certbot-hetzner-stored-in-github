@@ -57,15 +57,12 @@ chmod 600 /root/.ssh/KEYPAIR_PRIVATE || true
 chmod 600 /tmp/hetzner.ini || true
 
 # Clear our the lets encrypt directory.
-mkdir -p /etc/letsencrypt
-rm -rfv /etc/letsencrypt/* || true
-rm -rfv /etc/letsencrypt/.git || true
+rm -rfv /etc/letsencrypt || true
+mkdir -p /etc/letsencrypt || true
 
 # Add git credentials.
 git config --global user.email "certbot-hetzner-stored-in-github@example.com"
 git config --global user.name "Docker Container"
-
-
 
 
 ssh-agent bash -c "ssh-add /root/.ssh/KEYPAIR_PRIVATE; git clone --depth 1 $GIT_URL -b master /etc/letsencrypt" 
